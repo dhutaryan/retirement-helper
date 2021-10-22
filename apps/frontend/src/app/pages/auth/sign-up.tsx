@@ -25,8 +25,8 @@ export const SignUp: FC = () => {
   const dispatch = useDispatch();
   const { isPending } = useTypedSelector((state) => state.authReducer);
 
-  const onSubmit = ({ name, email, password }: SignUpForm) => {
-    dispatch(AuthActionCreators.signUp(name, email, password));
+  const onSubmit = (form: SignUpForm) => {
+    dispatch(AuthActionCreators.signUp(form.name, form.email, form.password));
   };
 
   return (

@@ -5,6 +5,7 @@ import { ErrorCode, ErrorResponse } from '@shared/models';
 import { AppDispatch } from '../..';
 import { AuthService } from '../../../services';
 import { AuthActionType, SetIsPendingAction } from './actions';
+import { history, RouteName } from '../../../router/routes';
 
 export const AuthActionCreators = {
   setIsLoading: (payload: boolean): SetIsPendingAction => ({
@@ -19,6 +20,7 @@ export const AuthActionCreators = {
         .then(() => {
           message.success('You have signed up successfully');
           dispatch(AuthActionCreators.setIsLoading(false));
+          history.push(RouteName.LOGIN);
         })
         .catch((error: AxiosError<ErrorResponse>) => {
           const errorCode = error.response?.data.errorCode;
