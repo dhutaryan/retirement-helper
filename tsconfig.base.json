@@ -14,7 +14,13 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@shared/models": ["libs/models/index.ts"],
+      "@frontend/utils": ["apps/frontend/src/app/utils/index.ts"],
+      "@frontend/env/*": ["apps/frontend/src/environments/*"],
+      "@frontend/store/*": ["apps/frontend/src/app/store/*"],
+      "@frontend/hooks": ["apps/frontend/src/app/hooks/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
