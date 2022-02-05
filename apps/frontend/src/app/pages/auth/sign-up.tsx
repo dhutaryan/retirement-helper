@@ -1,12 +1,12 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { Alert, Button, Card, Form, Input, Typography } from 'antd';
+import { Button, Card, Form, Input, Typography } from 'antd';
 import styled from 'styled-components';
 
 import { rules } from '@frontend/utils';
 import { AuthActionCreators } from '@frontend/store/reducers/auth/action-creators';
 import { useTypedSelector } from '@frontend/hooks';
+import { useActions } from '../../hooks/use-actions';
 
 export interface SignUpForm {
   name: string;
@@ -22,11 +22,11 @@ const SignUpCard = styled(Card)`
 `;
 
 export const SignUp: FC = () => {
-  const dispatch = useDispatch();
-  const { isPending } = useTypedSelector((state) => state.authReducer);
+  const { isPending } = useTypedSelector((state) => state.auth);
+  const { signUp } = useActions(AuthActionCreators);
 
   const onSubmit = (form: SignUpForm) => {
-    dispatch(AuthActionCreators.signUp(form.name, form.email, form.password));
+    signUp(form.name, form.email, form.password);
   };
 
   return (

@@ -10,3 +10,7 @@ export interface AuthTokens {
   refreshToken: string;
   fingerprint: string;
 }
+
+export interface TokenResponse {
+  accessToken: string;
+}
