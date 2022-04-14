@@ -20,3 +20,13 @@ model User {
 
   @@map("users")
 }
+
+model Token {
+  id          String   @id @default(uuid())
+  userId      String
+  token       String   @unique
+  fingerprint String   @unique
+  updatedAt   DateTime @updatedAt
+
+  @@map("refreshTokens")
+}
