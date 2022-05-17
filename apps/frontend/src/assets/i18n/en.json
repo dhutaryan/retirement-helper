@@ -1,0 +1,27 @@
+{
+  "ALREADY_HAVE_AN_ACCOUNT": "Already have an account?",
+  "BUTTON": {
+    "SIGN_IN": "Sign in",
+    "SIGN_UP": "Sign up"
+  },
+  "DONT_HAVE_AN_ACCOUNT": "Don't have an account?",
+  "FORM_ERROR": {
+    "EMAIL_INVALID": "Email is invalid",
+    "FIELD_IS_REQUIRED": "Field is required",
+    "PASSWORD_DO_NOT_MATCH": "Passwords do not match"
+  },
+  "FORM_LABEL": {
+    "CONFIRM_PASSWORD": "Confirm password",
+    "EMAIL": "Email",
+    "NAME": "Name",
+    "PASSWORD": "Password"
+  },
+  "HEADER": {
+    "LOGIN": "Login",
+    "REGISTRATION": "Registration"
+  },
+  "MENU": {
+    "ACTIVITY": "Activity",
+    "LOGOUT": "Logout"
+  }
+}

@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Avatar, Col, Dropdown, Layout, Menu, Row } from 'antd';
 
 import { AuthActionCreators } from '@frontend/store/reducers/auth/action-creators';
@@ -8,6 +9,7 @@ import { useActions } from '../../hooks/use-actions';
 import { useTypedSelector } from '../../hooks/use-typed-selector';
 
 export const Header: FC = () => {
+  const { t } = useTranslation();
   const location = useLocation();
   const path = location.pathname;
   const { logout } = useActions(AuthActionCreators);
@@ -15,7 +17,9 @@ export const Header: FC = () => {
   const firstLetter = user?.name.slice(0, 1).toUpperCase();
   const userMenu = (
     <Menu>
-      <Menu.Item onClick={logout}>Logout</Menu.Item>
+      <Menu.Item key="logout" onClick={logout}>
+        {t('MENU.LOGOUT')}
+      </Menu.Item>
     </Menu>
   );
 
@@ -31,7 +35,7 @@ export const Header: FC = () => {
             selectedKeys={[path]}
           >
             <Menu.Item key={RouteName.ACTIVITY}>
-              <Link to={RouteName.ACTIVITY}>Activity</Link>
+              <Link to={RouteName.ACTIVITY}>{t('MENU.ACTIVITY')}</Link>
             </Menu.Item>
           </Menu>
         </Col>
