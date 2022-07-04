@@ -18,7 +18,7 @@ export function appReducer(state = initialState, action: AppAction): AppState {
     case AppActionType.SET_ACCESS_TOKEN:
       return { ...state, isAuth: true, accessToken: action.payload };
     case AppActionType.LOGOUT:
-      return { ...state, isAuth: false, accessToken: '' };
+      return { ...state, isAuth: false, user: null, accessToken: '' };
     case AppActionType.SET_CURRENT_USER:
       return { ...state, user: action.payload };
     default:

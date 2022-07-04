@@ -4,9 +4,10 @@ import { useTranslation } from 'react-i18next';
 import { Avatar, Col, Dropdown, Layout, Menu, Row } from 'antd';
 
 import { AuthActionCreators } from '@frontend/store/reducers/auth/action-creators';
+import { getFirstLetter } from '@frontend/utils';
+import { useTypedSelector } from '@frontend/hooks';
 import { RouteName } from '../../router/routes';
 import { useActions } from '../../hooks/use-actions';
-import { useTypedSelector } from '../../hooks/use-typed-selector';
 
 export const Header: FC = () => {
   const { t } = useTranslation();
@@ -14,9 +15,12 @@ export const Header: FC = () => {
   const path = location.pathname;
   const { logout } = useActions(AuthActionCreators);
   const { user } = useTypedSelector((state) => state.app);
-  const firstLetter = user?.name.slice(0, 1).toUpperCase();
+  const firstLetter = getFirstLetter(user?.name as string);
   const userMenu = (
     <Menu>
+      <Menu.Item key="profile">
+        <Link to={RouteName.PROFILE}>{t('MENU.PROFILE')}</Link>
+      </Menu.Item>
       <Menu.Item key="logout" onClick={logout}>
         {t('MENU.LOGOUT')}
       </Menu.Item>
