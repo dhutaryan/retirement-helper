@@ -18,10 +18,17 @@
   },
   "HEADER": {
     "LOGIN": "Login",
+    "PROFILE": "Profile",
     "REGISTRATION": "Registration"
+  },
+  "LABELS": {
+    "EMAIL": "Email",
+    "JOINED": "Joined",
+    "NAME": "Name"
   },
   "MENU": {
     "ACTIVITY": "Activity",
-    "LOGOUT": "Logout"
+    "LOGOUT": "Logout",
+    "PROFILE": "Profile"
   }
 }
